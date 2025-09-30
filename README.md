@@ -1,6 +1,6 @@
 
 <div align="center">
-<h3 align="center">Go-floodingDOS </h3>
+<h3 align="center">go-SYNfloodingDOS </h3>
 
   <p align="center">
     DISCLAIMER: All the code shown here is solely for educational purposes, so others can better understand how a simple DOS attack with IP spoofing and SYN flooding can be implemented with Go. As it's educational, it's meant to only run for demonstration/testing purposes within your own local network/devices or ones where permission has been given to you.
