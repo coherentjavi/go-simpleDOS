@@ -1,9 +1,9 @@
 
 <div align="center">
-<h3 align="center">Golang IP Spoof DOS Attack </h3>
+<h3 align="center">Go-floodingDOS </h3>
 
   <p align="center">
-    The code here was solely created for educational purposes so others can better understand how a simple DOS attack with IP spoofing and SYN flooding could be implemented with Golang. As it's educational, it's meant to only be ran for demonstration purposes within your own local network or one where permission is given to you.
+    DISCLAIMER: All the code shown here is solely for educational purposes, so others can better understand how a simple DOS attack with IP spoofing and SYN flooding can be implemented with Go. As it's educational, it's meant to only run for demonstration/testing purposes within your own local network/devices or ones where permission has been given to you.
     <br />
     <a href="https://github.com/coherentjavi/Go-SpoofIP/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
   </p>
@@ -30,14 +30,12 @@
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
-     <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-This project was coded with `Go 1.24.6 linux/amd64`. In practice a DOS attack done via IP spoofing and SYN Flooding will rarely work due to many factors. Some of these factors are router security, NAT (Network address translation), firewalls, among others.
+This project was coded with `Go 1.24.6 linux/amd64`. In practice a DOS attack launched to an arbitrary device via IP spoofing and SYN Flooding, will rarely work due to many factors. Some of these factors include most modern routers implementing RFC 2827, devices sharing IPs later translated with NAT, extra security provided by firewalls/proxies, among others. To spoof the source device IP, <a href="https://pkg.go.dev/github.com/gopacket/gopacket"> GoPacket</a> was used. GoPacket allows one to go as low into the DataLink layer if necessary, in this project only the TCP and IP headers from layers 3 and 4 were needed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -45,7 +43,7 @@ This project was coded with `Go 1.24.6 linux/amd64`. In practice a DOS attack do
 <!-- GETTING STARTED -->
 ## Getting Started
 
-The network constants `AF_PACKET` and `ETH_P_ALL` are linux specific, the user will need to be using a linux distro to run the code. Please also note that all devices involved need to be connected to the same network for it to run correctly. The code can be ran by going to `/src` and running all the files with `go run main.go scan.go spoofAttack.go`, alternatively the user can buid a binary locally with `go build`
+Please also note that all devices involved need to be connected to the same network for it to run correctly. The code can be ran by going to `/src` and running all the files with `go run main.go scan.go spoofAttack.go`, root level permissions may be needed in which case `sudo go run` will work. Please note that the environment variables need to be configured for root too. Alternatively the user can buid a binary locally with `go build` and then exec the binary.
 
 
 <!-- CONTRIBUTING -->
@@ -71,23 +69,4 @@ Distributed under the project_license. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-* []()
-* []()
-* []()
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- CONTACT -->
-## Contact
-
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle)
-
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 

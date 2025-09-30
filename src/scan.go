@@ -21,6 +21,8 @@ func Scan(dstn string) []int {
 				return
 			}
 
+			fmt.Println("Error: ", err)
+
 		}(i)
 	}
 	wg.Wait()
