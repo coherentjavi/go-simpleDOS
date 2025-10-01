@@ -6,9 +6,9 @@ import (
 	"sync"
 )
 
-func Scan(dstn string) []int {
+func ScanPorts(dstn string) {
+	fmt.Println("Please wait for scan to finish and find which ports are open...")
 	var wg sync.WaitGroup
-	var openPorts []int
 	//port 0 isn't included as it's a reserved port
 	for i := 1; i <= 65535; i++ {
 		wg.Add(1)
@@ -16,15 +16,11 @@ func Scan(dstn string) []int {
 			defer wg.Done()
 			conn, err := net.Dial("tcp", fmt.Sprintf("%s:%d", dstn, j))
 			if err == nil {
-				openPorts = append(openPorts, j)
+				fmt.Printf("Port: %d\n", j)
 				conn.Close()
 				return
 			}
-
-			fmt.Println("Error: ", err)
-
 		}(i)
 	}
 	wg.Wait()
-	return openPorts
 }
