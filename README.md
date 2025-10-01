@@ -35,9 +35,9 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-This project was coded with `Go 1.24.6 linux/amd64`. In practice a DOS attack launched to an arbitrary device via IP spoofing and SYN Flooding, will rarely work due to many factors. Some of these factors include most modern routers implementing RFC 2827, devices in networks sharing IPs later translated with NAT, extra security provided by firewalls/proxies, among others. 
+This project was coded with `Go 1.24.6 linux/amd64`. In practice a DOS attack launched to an arbitrary device via IP spoofing and SYN Flooding, will rarely work due to many factors. Some of these factors include most modern routers implementing RFC 2827, devices in networks sharing IPs that are later translated with NAT, extra security provided by firewalls/proxies, among others. 
 
-To spoof the source device IP, <a href="https://pkg.go.dev/github.com/gopacket/gopacket"> GoPacket</a> was used. GoPacket allows one to go as low into the DataLink layer if necessary, in this project only the TCP and IP headers from layers 3 and 4 were needed.
+To spoof the source device IP, <a href="https://pkg.go.dev/github.com/gopacket/gopacket"> GoPacket</a> and <a href= "https://pkg.go.dev/golang.org/x/net">x/net</a> (specifically ipv4) were used. 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -45,7 +45,9 @@ To spoof the source device IP, <a href="https://pkg.go.dev/github.com/gopacket/g
 <!-- GETTING STARTED -->
 ## Getting Started
 
-Please note all devices involved need to be connected to the same network for it to run correctly. The code can be ran by going to `/src` and running all the files with `go run main.go scan.go attack.go`. Root level permissions may be needed in which case `sudo go run` will work instead, if this is the case the environment variables would need to be configured for root too. Alternatively the user can buid a binary locally with `go build` and then execute then binary.
+Please note all devices involved need to be connected to the same network for this to run correctly. The code can be ran by going to `/src` and running all the files with `go run main.go scan.go attackPorts.go`. Root level permissions may be needed in which case `sudo go run` will work instead, if this is the case then ensure the Go environment variables are configured for root too. Alternatively the user can buid a binary locally with `go build` and execute the binary.
+
+The TCP header and its values in `attack.go`, can be modified as needed.  
 
 
 <!-- CONTRIBUTING -->
@@ -64,11 +66,11 @@ Don't forget to give the project a star! Thanks again!
 
 
 
-<!-- LICENSE -->
+<!-- LICENSE 
 ## License
 
 Distributed under the project_license. See `LICENSE.txt` for more information.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>-->
 
 
